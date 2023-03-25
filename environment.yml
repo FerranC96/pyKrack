@@ -10,8 +10,10 @@ dependencies:
   - fastai::nbdev
   - numpy
   - pandas
+  - networkx
   - r-base
   - r-rmarkdown
+  - rpy2
 #  - pip:
     # - numpy
     # - pandas

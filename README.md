@@ -5,6 +5,8 @@
 This file will become your README and also the index of your
 documentation.
 
+THIS IS CLEARLY STILL A WORK IN PROGRESS PROJECT
+
 ## Install
 
 ``` sh
