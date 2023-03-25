@@ -1,0 +1,27 @@
+name: pyKrack
+channels:
+  - conda-forge
+  - fastai
+dependencies:
+  - python=3.10.*
+  - pip
+  - jupyter
+  - notebook
+  - fastai::nbdev
+  - numpy
+  - pandas
+  - r-base
+  - r-rmarkdown
+#  - pip:
+    # - numpy
+    # - pandas
+    # - networkx
+    # - scikit-learn
+    # - scipy
+    # - matplotlib
+    # - descartes
+    # - alphashape
+    # - shapely
+    # - plotly
+    # - graphtools
+    # - pygsp

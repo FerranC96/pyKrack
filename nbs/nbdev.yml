@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "pyKrack"
+  site-url: "https://FerranC96.github.io/pyKrack"
+  description: "Computing Krackhardt hierarchy score on netowrkX graphs"
+  repo-branch: main
+  repo-url: "https://github.com/FerranC96/pyKrack"
