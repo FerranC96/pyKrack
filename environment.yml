@@ -13,6 +13,7 @@ dependencies:
   - networkx
   - r-base
   - r-rmarkdown
+  - r-sna
   - rpy2
 #  - pip:
     # - numpy
