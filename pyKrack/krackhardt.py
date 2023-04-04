@@ -50,9 +50,15 @@ def compute_hierarchy(G, metric="pykrack"):
         score = asymmetric_dyads / non_null_dyads
     
     elif metric == "rsnakrack": #R implementation from the sna package
-        base = importr("base")
-        sna = importr("sna")
-        score = sna.hierarchy(nx.to_numpy_array(G), measure="krackhardt")[0]
+        try:
+            base = importr("base")
+            sna = importr("sna")
+            score = sna.hierarchy(nx.to_numpy_array(G), measure="krackhardt")[0]
+        except:
+            print("R package sna was not found. Please install manually!")
+            print("Computing hierarchy flow instead")
+            snafail_flag = 1
+            score = nx.flow_hierarchy(G)
     
     elif metric == "hierarchy_flow": #Networkx's hierarchy flow implementation
         score = nx.flow_hierarchy(G)
