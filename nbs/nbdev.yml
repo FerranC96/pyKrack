@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "pyKrack"
-  site-url: "https://FerranC96.github.io/pyKrack"
+  title: "pykrack"
+  site-url: "https://FerranC96.github.io/pykrack"
   description: "Computing Krackhardt hierarchy score on netowrkX graphs"
   repo-branch: main
-  repo-url: "https://github.com/FerranC96/pyKrack"
+  repo-url: "https://github.com/FerranC96/pykrack"

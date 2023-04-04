@@ -1,4 +1,4 @@
-name: pyKrack
+name: pykrack
 channels:
   - conda-forge
   - fastai

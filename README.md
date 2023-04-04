@@ -9,9 +9,19 @@ THIS IS CLEARLY STILL A WORK IN PROGRESS PROJECT
 
 ## Install
 
+Due to the comparisons with the r package sna We recommend using conda.
+Create an environment using the environment.yml file, load it and
+install/run the package.
+
+Alternatively pyKrack can also be isntalled using pip via the following
+command
+
 ``` sh
 pip install pyKrack
 ```
+
+Then install the R dependencies listed in the conda environmnet.yml
+manually.
 
 ## How to use
 
