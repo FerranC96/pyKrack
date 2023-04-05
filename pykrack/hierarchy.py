@@ -30,12 +30,11 @@ def compute_hierarchy(G, metric="pykrack"):
         non_null_dyads = 0
         n = len(Gr.nodes())
         #Count the number of non-null asymmetric dyads
-        for i in Gr.nodes():
-            for j in Gr.nodes():
-                if Gr.has_edge(i,j) or Gr.has_edge(j,i): #Non-null dyad
-                    non_null_dyads+=1
-                    if  Gr.has_edge(i,j) != Gr.has_edge(j,i): #Asymmetric!
-                        asymmetric_dyads+=1
+        for pair in product(Gr.nodes(), Gr.nodes()):
+            if Gr.has_edge(pair[0],pair[1]) or Gr.has_edge(pair[1],pair[0]): #Non-null dyad
+                non_null_dyads+=1
+                if  Gr.has_edge(pair[0],pair[1]) != Gr.has_edge(pair[1],pair[0]): #Asymmetric!
+                    asymmetric_dyads+=1
         #Raise exception if graph has no edges!
         if non_null_dyads == 0:
             raise Exception
