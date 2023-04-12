@@ -3,11 +3,26 @@
 # %% auto 0
 __all__ = ['graph_properties']
 
-# %% ../nbs/00_core.ipynb 3
+# %% ../nbs/00_core.ipynb 5
 def graph_properties(G):
-    "Return the properties of a NetworkX graph"
+    """
+    Return the properties of a NetworkX graph.
+    
+    Parameters
+    ----------
+    G
+        NetworkX graph
+        
+    Returns
+    -------
+    properties : str
+        Concatenated string with number of edges and of nodes, the average degree and the graph's density
+    """
 
-    import networkx as nx #Be mindful of scoping!
+    import networkx as nx # Be mindful of scoping!
+
+    if not isinstance(G, nx.Graph):
+        raise ValueError("Make sure the input is a NetworkX graph!")
 
     properties = f"Edges:{G.number_of_edges()}, Nodes:{G.number_of_nodes()}, Avg Degree:{sum(dict(G.degree()).values())/G.number_of_nodes()}, Density:{nx.density(G)}"
 

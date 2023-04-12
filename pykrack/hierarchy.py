@@ -3,9 +3,26 @@
 # %% auto 0
 __all__ = ['compute_hierarchy']
 
-# %% ../nbs/01_hierarchy.ipynb 6
+# %% ../nbs/01_hierarchy.ipynb 7
 def compute_hierarchy(G, metric="pykrack"):
-    "Compute one of 3 hierarchy scores"
+    """
+    Compute one of the possible hierarchy scores
+    
+    Parameters
+    ----------
+    G
+        Directed NetworkX graph
+    metric : str
+        Type of hierarchy metric to compute. Accepted types are:
+        'pykrack' for this module's implementation of the Krackhardt score.
+        'rsnakrack' for the sna implementation in R.
+        'hierarchy_flow' for the Luo and Magee 2011 as implemented in the NetworkX package.
+
+    Returns
+    -------
+    score : float
+        One of the possible hierarchy scores
+    """
 
     #Ensure Graph is DirectedGraph
     if not G.is_directed():
@@ -26,19 +43,19 @@ def compute_hierarchy(G, metric="pykrack"):
             Gr = nx.transitive_closure_dag(G)
         else:
             Gr = nx.transitive_closure(G, reflexive=None)
-        asymmetric_dyads = 0
+        symmetric_dyads = 0
         non_null_dyads = 0
         n = len(Gr.nodes())
-        #Count the number of non-null asymmetric dyads
+        #Count the number of non-null symmetric dyads
         for pair in product(Gr.nodes(), Gr.nodes()):
             if Gr.has_edge(pair[0],pair[1]) or Gr.has_edge(pair[1],pair[0]): #Non-null dyad
                 non_null_dyads+=1
-                if  Gr.has_edge(pair[0],pair[1]) != Gr.has_edge(pair[1],pair[0]): #Asymmetric!
-                    asymmetric_dyads+=1
+                if  Gr.has_edge(pair[0],pair[1]) == Gr.has_edge(pair[1],pair[0]): #Symmetric!
+                    symmetric_dyads+=1
         #Raise exception if graph has no edges!
         if non_null_dyads == 0:
             raise Exception
-        score = asymmetric_dyads / non_null_dyads
+        score = 1 - (symmetric_dyads / non_null_dyads)
     
     elif metric == "rsnakrack": #R implementation from the sna package
         try:
