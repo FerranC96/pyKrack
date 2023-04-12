@@ -25,10 +25,26 @@ manually.
 
 ## How to use
 
-Fill me in please! Don’t forget code examples:
+Please see the core and hierarchy notebooks for more detailed
+explanations.
 
-``` python
-1+1
-```
+**pyKrack** consists of one main function,
+[`compute_hierarchy`](https://FerranC96.github.io/pykrack/hierarchy.html#compute_hierarchy).
 
-    2
+------------------------------------------------------------------------
+
+<a
+href="https://github.com/FerranC96/pykrack/blob/main/pykrack/hierarchy.py#LNone"
+target="_blank" style="float:right; font-size:smaller">source</a>
+
+### compute_hierarchy
+
+>      compute_hierarchy (G, metric='pykrack')
+
+Compute one of the possible hierarchy scores
+
+|             | **Type**  | **Default** | **Details**                                                                                                                                                                                                                                                            |
+|-------------|-----------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| G           |           |             | Directed NetworkX graph                                                                                                                                                                                                                                                |
+| metric      | str       | pykrack     | Type of hierarchy metric to compute. Accepted types are:<br>‘pykrack’ for this module’s implementation of the Krackhardt score.<br>‘rsnakrack’ for the sna implementation in R.<br>‘hierarchy_flow’ for the Luo and Magee 2011 as implemented in the NetworkX package. |
+| **Returns** | **float** |             | **One of the possible hierarchy scores**                                                                                                                                                                                                                               |
