@@ -150,3 +150,8 @@ checklink/cookies.txt
 # Quarto
 .quarto
 tutorial.ipynb
+
+#Conda package (not working for now)
+conda/
+#GH token
+token
