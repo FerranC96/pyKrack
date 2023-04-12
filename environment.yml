@@ -15,7 +15,11 @@ dependencies:
   - r-rmarkdown
   - r-sna
   - rpy2
-#  - pip:
+  - twine #For package publishing
+  - anaconda-client #For package publishing
+  - conda-build #For package publishing
+  - conda-verify #For package publishing
+  # - pip:
     # - numpy
     # - pandas
     # - networkx
