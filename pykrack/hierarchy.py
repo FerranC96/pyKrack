@@ -23,6 +23,9 @@ def compute_hierarchy(G, metric="pykrack"):
     score : float
         One of the possible hierarchy scores
     """
+    
+    import networkx as nx # Be mindful of scoping!
+    from itertools import product
 
     #Ensure Graph is DirectedGraph
     if not G.is_directed():
@@ -58,6 +61,9 @@ def compute_hierarchy(G, metric="pykrack"):
         score = 1 - (symmetric_dyads / non_null_dyads)
     
     elif metric == "rsnakrack": #R implementation from the sna package
+        #Be wary of scoping again!
+        from rpy2.robjects.packages import importr
+
         try:
             base = importr("base")
             sna = importr("sna")
